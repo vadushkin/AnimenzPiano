@@ -31,5 +31,4 @@ class Sheet(models.Model):
         output = f'{self.file.path[:-4]}.jpg'
         pil_image.save(output)
         page.close()
-        print(self.pk)
         Sheet.objects.filter(pk=self.pk).update(photo=f'{self.file.path[:-4]}.jpg')
