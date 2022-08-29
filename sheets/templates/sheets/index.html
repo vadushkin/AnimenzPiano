@@ -1,13 +1,8 @@
 {% extends 'base.html' %}
 
-{% block header %}
-    <h1>This's header</h1>
-{% endblock header %}
-
 {% block content %}
+    {% for i in sheet %}
+        <img src="{{ i.photo.url }}" alt="">
+    {% endfor %}
     <h1>This's content</h1>
 {% endblock content %}
-
-{% block footer %}
-    <h1>This's footer</h1>
-{% endblock footer %}

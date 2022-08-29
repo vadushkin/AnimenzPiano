@@ -8,6 +8,9 @@ urlpatterns = [
     path('', include('sheets.urls'))
 ]
 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_URL)
+
 if settings.DEBUG:
     import socket
 
@@ -15,4 +18,3 @@ if settings.DEBUG:
     INTERNAL_IPS = [ip[: ip.rfind(".")] + ".1" for ip in ips] + ["127.0.0.1", "10.0.2.2"]
 
     urlpatterns = [path('__debug__/', include('debug_toolbar.urls')), ] + urlpatterns
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
