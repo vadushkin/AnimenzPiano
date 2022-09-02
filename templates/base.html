@@ -17,7 +17,7 @@
     <meta name="twitter:card" content="summary">
     <meta name="twitter:image" content="https://cdn.jsdelivr.net/gh/AnotiaWang/animenz@source/img/avatar.png">
 
-    <title>Animenz 曲谱</title>
+    <title>{% block title %}{% endblock title %}</title>
 
     <link href="https://fonts.loli.net/css?family=Baloo+Bhaijaan|Inconsolata|Josefin+Sans|Montserrat" rel="stylesheet">
     <link rel="alternate" type="application/atom+xml" title="Animenz 曲谱" href="{% static 'xml/atom.xml' %} ">
@@ -89,6 +89,7 @@
 </div>
 
 {% block footer %}
+    {% include 'include/footer.html' %}
 {% endblock footer %}
 
 </body>
