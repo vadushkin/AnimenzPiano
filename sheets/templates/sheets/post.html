@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="φj">
+        <div class="φi">
+            <div class="φn">
+                <div class="φm">
+                    <div class="φet">
+
+                        <header class="φfd φfe">
+                            <div class="φfm"><h1 class="φfp">{{ sheet.name }}</h1>
+                                <p class="φff">
+                                    <span class="φci"><i class="φa iκ-calendar φcj"></i>
+                                        {{ sheet.created_at|date:"Y" }}年
+                                        {{ sheet.created_at|date:"m" }}月
+                                        {{ sheet.created_at|date:"d" }}日
+                                    </span>
+                                </p>
+                            </div>
+                        </header>
+
+                        <article class="φew"
+                                 data-title="残酷天使的行动纲领 – 新世纪福音战士 OP1">
+
+                            <div itemprop="articleBody"
+                                 class="φe">
+
+                                <p>{{ sheet.description }}</p>
+
+                                <p><img src="{{ sheet.photo.url }}"
+                                        alt="{{ sheet.photo.name }}" loading="lazy" class="φbp"></p>
+
+                                <p><a href="{{ sheet.url }}"
+                                      target="_blank">下载PDF</a></p>
+
+                            </div>
+                        </article>
+
+                        <footer class="φex">
+                            <div class="φfc">
+                                {% for tag in tags %}
+                                    <h1>{{ tag }}</h1>
+                                    <div class="φdo">
+                                        <a class="φdp"
+                                           href="/tags/%E7%A9%BA%E4%B9%8B%E9%9F%B3">{{ tag.name }}</a>
+                                    </div>
+                                {% endfor %}
+                            </div>
+
+                            <div class="φey">
+                                {% if previous_page %}
+                                    <a class="φez φfb"
+                                       href="{% url 'post' previous_page.get.slug %}">{{ previous_page.get.name }}</a>
+                                {% endif %}
+                                {% if next_page %}
+                                    <a class="φez φfa"
+                                       href="{% url 'post' next_page.get.slug %}">{{ next_page.get.name }}</a>
+                                {% endif %}
+                            </div>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content %}

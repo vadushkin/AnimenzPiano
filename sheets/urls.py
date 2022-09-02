@@ -3,7 +3,7 @@ from . import views
 
 urlpatterns = [
     # main page
-    path('', views.home, name='home'),
+    path('', views.SheetsHome.as_view(), name='home'),
 
     # contact
     path('about/', views.about, name='about'),
@@ -11,7 +11,7 @@ urlpatterns = [
 
     # # content
     # path('archives/', views.archives, name='archives'),
-    path('post/<slug:name>', views.post, name='post'),
+    path('post/<slug:slug>', views.PostView.as_view(), name='post'),
     # path('categories/uncategorized', views.uncategorized, name='uncategorized'),
     # path('tags/', views.tags, name='tags'),
     # path('tags/<slug:name>', views.tag_name, name='tag_name'),

@@ -1,16 +1,21 @@
-from django.http import HttpResponse
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 
 from .models import Sheet
 
 
-def home(request):
-    context = {
-        'sheets': Sheet.objects.all(),
-        'title': 'Animenz 曲谱',
-        'name_page': 'home',
-    }
-    return render(request, 'sheets/index.html', context=context)
+class SheetsHome(ListView):
+    model = Sheet
+    template_name = 'sheets/index.html'
+    context_object_name = 'sheets'
+    allow_empty = False
+    paginate_by = 10
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Animenz 曲谱'
+        context['name_page'] = 'home'
+        return context
 
 
 def about(request):
@@ -29,8 +34,16 @@ def donate(request):
     return render(request, 'sheets/donate.html', context=context)
 
 
-def post(request, name):
-    context = {
-        'title': name,
-    }
-    return HttpResponse(name)
+class PostView(DetailView):
+    model = Sheet
+    template_name = 'sheets/post.html'
+    context_object_name = 'sheet'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = kwargs['object']
+        context['tags'] = ''
+        context['next_page'] = Sheet.objects.filter(id=kwargs['object'].id + 1)
+        context['previous_page'] = Sheet.objects.filter(pk=kwargs['object'].id - 1)
+        print(Sheet.objects.filter(id=kwargs['object'].id + 1))
+        return context
