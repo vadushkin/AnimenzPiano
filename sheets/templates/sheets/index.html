@@ -11,17 +11,20 @@
                 <div class="φm">
                     <div class="φeu">
 
-                        <div class="φce">
-                            <div class="φch">
-                                <h3 class="φcl">
-                                    <a href="/posts/tamashii-no-refrain-2">魂之轮回 - 新世纪福音战士剧场版：死与新生
-                                        主题曲</a>
-                                </h3>
-                                <footer class="φcg">
-                                    <span class="φci"><i class="φa iκ-calendar φcj"></i>2022年4月20日</span>
-                                </footer>
+                        {% for sheet in sheets %}
+                            <div class="φce">
+                                <div class="φch">
+                                    <h3 class="φcl">
+                                        <a href="{% url 'post' sheet.slug %}">{{ sheet.name }}</a>
+                                    </h3>
+                                    <footer class="φcg">
+                                        <span class="φci"><i
+                                                class="φa iκ-calendar φcj"></i>{{ sheet.created_at|date:"Y" }}年
+                                            {{ sheet.created_at|date:"m" }}月{{ sheet.created_at|date:"d" }}日</span>
+                                    </footer>
+                                </div>
                             </div>
-                        </div>
+                        {% endfor %}
 
                         <div class="φby">
                             <a class="φbz φca">1</a>

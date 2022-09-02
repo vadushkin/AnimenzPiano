@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 
 from .models import Sheet
@@ -5,7 +6,7 @@ from .models import Sheet
 
 def home(request):
     context = {
-        'sheet': Sheet.objects.all(),
+        'sheets': Sheet.objects.all(),
         'title': 'Animenz 曲谱',
         'name_page': 'home',
     }
@@ -26,3 +27,10 @@ def donate(request):
         'name_page': 'donate',
     }
     return render(request, 'sheets/donate.html', context=context)
+
+
+def post(request, name):
+    context = {
+        'title': name,
+    }
+    return HttpResponse(name)
