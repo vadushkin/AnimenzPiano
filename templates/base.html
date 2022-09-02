@@ -79,11 +79,14 @@
 {% block header %}
 {% endblock header %}
 
-{% block sidebar %}
-{% endblock sidebar %}
+<div class="φh">
+    {% block sidebar %}
+        {% include 'sidebar.html' %}
+    {% endblock sidebar %}
 
-{% block content %}
-{% endblock content %}
+    {% block content %}
+    {% endblock content %}
+</div>
 
 {% block footer %}
 {% endblock footer %}

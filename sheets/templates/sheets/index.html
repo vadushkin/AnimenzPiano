@@ -1,72 +1,37 @@
 {% extends 'base.html' %}
 
-{#{% block content %}#}
-{#    {% for i in sheet %}#}
-{#        <img src="{{ i.photo.url }}" alt="">#}
-{#    {% endfor %}#}
-{#    <h1>This's content</h1>#}
-{#{% endblock content %}#}
 {% block content %}
-
-    <!-- hexo injector head_end start -->
-
-    <is-a class="φh" ng-version="12.1.0">
-    <is-k class="φcu">
-        <div class="φdg">
-            <section class="φdh">
-                <header class="φcv"><i class="φda"></i><!----><!----><img width="160" draggable="false" class="φcx φcw"
-                                                                          src="https://cdn.jsdelivr.net/gh/AnotiaWang/animenz@source/img/avatar.png"
-                                                                          alt="Animenz 曲谱" title="Animenz 曲谱">
-                    <!----><a href="" class="φcz">Animenz 曲谱</a>
-                    <p class="φcy">Specially for Animenz fans</p></header>
-                <div class="φdl"><a routerlink="/archives" class="φdm" href="/archives"><span>45</span><span>归档</span></a><a
-                        class="φdm" href="/categories/uncategorized"><span>1</span><span>分类</span></a><!----><a
-                        routerlink="/tags" class="φdm" href="/tags"><span>17</span><span>标签</span></a><!----></div>
-                <!---->
-                <nav class="φdi"><a class="φdj φdk" href="/">🏠　主页</a><!----><!----><!----><a class="φdj"
-                                                                                               href="/about">📝　关于</a>
-                    <!----><!----><!----><!----><a target="_blank" rel="external nofollow noopener" class="φdj"
-                                                   href="https://space.bilibili.com/6075139">📺　Bilibili</a><!---->
-                    <!----><a class="φdj" href="/donate">💲　打赏支持</a><!----><!----><!----><!----></nav><!---->
-                <div issnippet="" class="φb">
-                    <is-palette2></is-palette2>
-                </div><!----><!----><!----></section>
-            <footer class="φdb φdc">
-                <div class="φde"><!----><a target="_blank" rel="external nofollow noopener" class="φdf" title="Email"
-                                           href="mailto:mailto:mail@to.anotia.top"><i class="iκ-email"></i></a><!---->
-                    <!----><!----><a target="_blank" rel="external nofollow noopener" class="φdf" title="RSS"
-                                     href="https://animenz.anotia.top/atom.xml"><i class="iκ-feed"></i></a><!---->
-                    <!----><!----></div><!----><p class="φe">© 2020-2021 ❤️ <a href="/">Animenz 曲谱网</a></p><!---->
-                <!----><p class="φe">
-                <div><span title="总访客量"> UV : <span id="busuanzi_value_site_uv"></span></span> | <span
-                        title="总访问量"> PV : <span id="busuanzi_value_site_pv"></span></span></div>
-                </p><!----></footer>
-        </div>
-    </is-k>
     <div class="φj">
         <div class="φi">
             <div class="φn">
                 <main class="φm">
-                    <router-outlet></router-outlet>
                     <is-s class="φeu">
+
                         <is-i class="φce">
-                            <div class="φch"><h3 class="φcl"><a href="/posts/tamashii-no-refrain-2">魂之轮回 -
-                                新世纪福音战士剧场版：死与新生 主题曲</a></h3><!---->
+                            <div class="φch">
+                                <h3 class="φcl">
+                                    <a href="/posts/tamashii-no-refrain-2">魂之轮回 - 新世纪福音战士剧场版：死与新生 主题曲</a></h3>
                                 <footer class="φcg"><span class="φci"><i
                                         class="φa iκ-calendar φcj"></i>2022年4月20日</span></footer>
-                            </div></is-i>
-                        <is-h url="page" indexurl="" class="φby"><a
-                                class="φbz φca">1</a><a class="φbz"
-                                                                                           href="/page/2">2</a>
-                            <a class="φbz" href="/page/3">3</a>
+                            </div>
+                        </is-i>
+
+                        <is-h url="page"
+                              indexurl=""
+                              class="φby">
+                            <a class="φbz φca">1</a>
+                            <a class="φbz"
+                               href="/page/2">2</a>
+                            <a class="φbz"
+                               href="/page/3">3</a>
                             <a class="φbz φcc"
-                                                                                       href="/page/2"></a></is-h></is-s>
+                               href="/page/2"></a>
                 </main></div>
         </div>
     </div>
     <is-f class="φz">
         <div class="φbi"><span class="φa iκ-up"></span><span class="φa iκ-down"></span><span
-                class="φa iκ-search"></span><!----></div>
+                class="φa iκ-search"></span></div>
         <div class="φbb φbc">
             <svg class="φbh">
                 <defs>
@@ -83,5 +48,5 @@
                     <circle r=".2rem" cx="0" cy=".8rem"></circle>
                 </g></svg>
         </div>
-    </is-f></is-a>
+    </is-f>
 {% endblock content %}
