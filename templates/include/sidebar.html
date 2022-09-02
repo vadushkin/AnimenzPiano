@@ -31,16 +31,35 @@
             </div>
 
             <nav class="φdi">
-                <a class="φdj φdk"
-                   href="/">🏠　主页</a>
-                <a class="φdj"
-                   href="/about">📝　关于</a>
+
+                {% if name_page == 'home' %}
+                    <a class="φdj φdk"
+                       href="/">🏠　主页</a>
+                {% else %}
+                    <a class="φdj"
+                       href="/">🏠　主页</a>
+                {% endif %}
+
+                {% if name_page == 'about' %}
+                    <a class="φdj φdk"
+                       href="/about">📝　关于</a>
+                {% else %}
+                    <a class="φdj"
+                       href="/about">📝　关于</a>
+                {% endif %}
+
                 <a target="_blank"
                    rel="external nofollow noopener"
                    class="φdj"
                    href="https://space.bilibili.com/6075139">📺　Bilibili</a>
-                <a class="φdj"
-                   href="/donate">💲　打赏支持</a>
+
+                {% if name_page == 'donate' %}
+                    <a class="φdj φdk"
+                       href="/donate">💲　打赏支持</a>
+                {% else %}
+                    <a class="φdj"
+                       href="/donate">💲　打赏支持</a>
+                {% endif %}
             </nav>
 
             <div issnippet="" class="φb"></div>

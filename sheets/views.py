@@ -7,6 +7,7 @@ def home(request):
     context = {
         'sheet': Sheet.objects.all(),
         'title': 'Animenz 曲谱',
+        'name_page': 'home',
     }
     return render(request, 'sheets/index.html', context=context)
 
@@ -14,5 +15,14 @@ def home(request):
 def about(request):
     context = {
         'title': 'About',
+        'name_page': 'about',
     }
     return render(request, 'sheets/about.html', context=context)
+
+
+def donate(request):
+    context = {
+        'title': 'Donate',
+        'name_page': 'donate',
+    }
+    return render(request, 'sheets/donate.html', context=context)

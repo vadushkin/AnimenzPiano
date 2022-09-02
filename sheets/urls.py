@@ -7,8 +7,8 @@ urlpatterns = [
 
     # contact
     path('about/', views.about, name='about'),
-    # path('donate/', views.donate, name='donate'),
-    #
+    path('donate/', views.donate, name='donate'),
+
     # # content
     # path('archives/', views.archives, name='archives'),
     # path('post/<slug:name>', views.post, name='post'),
