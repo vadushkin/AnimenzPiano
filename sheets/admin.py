@@ -14,6 +14,7 @@ class SheetAdminModel(admin.ModelAdmin):
               'slug',
               'description',
               'file',
+              'tags',
               )
     readonly_fields = ('get_photo', 'created_at', 'updated_at')
 
