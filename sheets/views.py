@@ -42,8 +42,6 @@ class PostView(DetailView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = kwargs['object']
-        context['tags'] = ''
         context['next_page'] = Sheet.objects.filter(id=kwargs['object'].id + 1)
         context['previous_page'] = Sheet.objects.filter(pk=kwargs['object'].id - 1)
-        print(Sheet.objects.filter(id=kwargs['object'].id + 1))
         return context

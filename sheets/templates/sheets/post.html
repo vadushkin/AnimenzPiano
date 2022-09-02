@@ -41,9 +41,9 @@
                         </article>
 
                         <footer class="φex">
+
                             <div class="φfc">
-                                {% for tag in tags %}
-                                    <h1>{{ tag }}</h1>
+                                {% for tag in sheet.tags.all %}
                                     <div class="φdo">
                                         <a class="φdp"
                                            href="/tags/%E7%A9%BA%E4%B9%8B%E9%9F%B3">{{ tag.name }}</a>
@@ -61,6 +61,7 @@
                                        href="{% url 'post' next_page.get.slug %}">{{ next_page.get.name }}</a>
                                 {% endif %}
                             </div>
+
                         </footer>
                     </div>
                 </div>
