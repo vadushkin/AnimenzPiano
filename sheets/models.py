@@ -16,6 +16,7 @@ class Sheet(models.Model):
     file = models.FileField()
     photo = models.ImageField()
     description = models.TextField(blank=True)
+    url = models.URLField(blank=True)
     tags = models.ManyToManyField(Tag, related_name="post")
     created_at = models.DateField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)

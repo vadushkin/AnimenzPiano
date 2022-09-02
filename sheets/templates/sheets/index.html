@@ -1,52 +1,67 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <div class="φj">
-        <div class="φi">
-            <div class="φn">
-                <main class="φm">
-                    <is-s class="φeu">
+<div class="φj">
+    <div class="φi">
+        <div class="φn">
+            <div class="φm">
+                <div class="φeu">
 
-                        <is-i class="φce">
-                            <div class="φch">
-                                <h3 class="φcl">
-                                    <a href="/posts/tamashii-no-refrain-2">魂之轮回 - 新世纪福音战士剧场版：死与新生 主题曲</a></h3>
-                                <footer class="φcg"><span class="φci"><i
-                                        class="φa iκ-calendar φcj"></i>2022年4月20日</span></footer>
-                            </div>
-                        </is-i>
+                    <div class="φce">
+                        <div class="φch">
+                            <h3 class="φcl">
+                                <a href="/posts/tamashii-no-refrain-2">魂之轮回 - 新世纪福音战士剧场版：死与新生
+                                    主题曲</a>
+                            </h3>
+                            <footer class="φcg">
+                                <span class="φci"><i class="φa iκ-calendar φcj"></i>2022年4月20日</span>
+                            </footer>
+                        </div>
+                    </div>
 
-                        <is-h url="page"
-                              indexurl=""
-                              class="φby">
-                            <a class="φbz φca">1</a>
-                            <a class="φbz"
-                               href="/page/2">2</a>
-                            <a class="φbz"
-                               href="/page/3">3</a>
-                            <a class="φbz φcc"
-                               href="/page/2"></a>
-                </main></div>
+                    <div class="φby">
+                        <a class="φbz φca">1</a>
+                        <a class="φbz"
+                           href="/page/2">2</a>
+                        <a class="φbz"
+                           href="/page/3">3</a>
+                        <a class="φbz φcc"
+                           href="/page/2"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="φz">
+
+            <div class="φbi">
+                <span class="φa iκ-up"></span>
+                <span class="φa iκ-down"></span>
+                <span class="φa iκ-search"></span>
+            </div>
+
+            <div class="φbb φbc">
+
+                <svg class="φbh">
+
+                    <defs>
+                        <filter id="dp">
+                            <feGaussianBlur in="SourceGraphic" stdDeviation="2"></feGaussianBlur>
+                        </filter>
+                    </defs>
+
+                    <circle filter="url(#dp)" fill="rgba(0,0,0,.3)" cx="50%" cy="52%" r="44%"></circle>
+                    <circle cx="50%" cy="50%" r="44%" class="φbd"></circle>
+                    <circle cx="50%" cy="50%" r="48%" class="φbg" stroke-dasharray="0% 314.15926%"></circle>
+
+                    <g class="φbe">
+                        <circle r=".2rem" cx="0" cy="-.8rem"></circle>
+                        <circle r=".2rem"></circle>
+                        <circle r=".2rem" cx="0" cy=".8rem"></circle>
+                    </g>
+
+                </svg>
+            </div>
         </div>
     </div>
-    <is-f class="φz">
-        <div class="φbi"><span class="φa iκ-up"></span><span class="φa iκ-down"></span><span
-                class="φa iκ-search"></span></div>
-        <div class="φbb φbc">
-            <svg class="φbh">
-                <defs>
-                    <filter id="dp">
-                        <feGaussianBlur in="SourceGraphic" stdDeviation="2"></feGaussianBlur>
-                    </filter>
-                </defs>
-                <circle filter="url(#dp)" fill="rgba(0,0,0,.3)" cx="50%" cy="52%" r="44%"></circle>
-                <circle cx="50%" cy="50%" r="44%" class="φbd"></circle>
-                <circle cx="50%" cy="50%" r="48%" class="φbg" stroke-dasharray="0% 314.15926%"></circle>
-                <g class="φbe">
-                    <circle r=".2rem" cx="0" cy="-.8rem"></circle>
-                    <circle r=".2rem"></circle>
-                    <circle r=".2rem" cx="0" cy=".8rem"></circle>
-                </g></svg>
-        </div>
-    </is-f>
+</div>
 {% endblock content %}
