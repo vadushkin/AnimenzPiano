@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load sidebar_tags %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="φj">
+        <div class="φi">
+            <div class="φn">
+                <div class="φm">
+                    <div class="v-category">
+                        <div class="φen">
+                            {% for category in list_count %}
+                                <nav class="φei">
+                                    <a class="φej"
+                                       count="{{ category.cnt }}"
+                                       href="{% url 'category' category.slug %}">{{ category.name }}</a>
+                                </nav>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

@@ -1,7 +1,8 @@
+from django.db.models import Count
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
 
-from .models import Sheet, Tag
+from .models import Sheet, Tag, Category
 
 
 class SheetsHome(ListView):
@@ -77,6 +78,21 @@ class ArchivesView(ListView):
 
 
 class CategoriesView(ListView):
+    model = Category
+    template_name = 'sheets/categories.html'
+    context_object_name = 'categories'
+    allow_empty = False
+    paginate_by = 10
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = '分类 - Animenz 曲谱'
+        context['name_page'] = 'categories'
+        context['list_count'] = Category.objects.annotate(cnt=Count('category'))
+        return context
+
+
+class CategoryNameView(ListView):
     model = Sheet
     template_name = 'sheets/index.html'
     context_object_name = 'sheets'
@@ -86,7 +102,7 @@ class CategoriesView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Animenz 曲谱'
-        context['name_page'] = 'home'
+        context['name_page'] = 'categories'
         return context
 
 

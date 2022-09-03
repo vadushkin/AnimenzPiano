@@ -13,7 +13,8 @@ urlpatterns = [
     # content
     path('archives/', views.ArchivesView.as_view(), name='archives'),
     path('post/<slug:slug>/', views.PostView.as_view(), name='post'),
-    path('categories/uncategorized/', views.CategoriesView.as_view(), name='uncategorized'),
+    path('categories/', views.CategoriesView.as_view(), name='categories'),
+    path('categories/<slug:slug>/', views.CategoryNameView.as_view(), name='category'),
     path('tags/', views.TagsView.as_view(), name='tags'),
     path('tags/<slug:slug>/', views.TagNameView.as_view(), name='tag_name'),
 ]

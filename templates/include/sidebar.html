@@ -30,15 +30,15 @@
                     </a>
                 {% endif %}
 
-                {% if name_page == 'uncategorized' %}
+                {% if name_page == 'categories' %}
                     <a class="φdm φdn"
-                       href="/categories/uncategorized">
-                        <span>{% get_count_uncategorized %}</span><span>分类</span>
+                       href="/categories/">
+                        <span>{% get_count_categories %}</span><span>分类</span>
                     </a>
                 {% else %}
                     <a class="φdm"
-                       href="/categories/uncategorized">
-                        <span>{% get_count_uncategorized %}</span><span>分类</span>
+                       href="/categories/">
+                        <span>{% get_count_categories %}</span><span>分类</span>
                     </a>
                 {% endif %}
 

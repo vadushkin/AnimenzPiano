@@ -1,6 +1,6 @@
 from django import template
 
-from sheets.models import Tag, Sheet
+from sheets.models import Tag, Sheet, Category
 
 register = template.Library()
 
@@ -15,6 +15,6 @@ def get_count_archives():
     return Sheet.objects.count()
 
 
-@register.simple_tag(name='get_count_uncategorized')
-def get_count_uncategorized():
-    return Sheet.objects.filter(category__name='uncategorized').count()
+@register.simple_tag(name='get_count_categories')
+def get_count_categories():
+    return Category.objects.count()
