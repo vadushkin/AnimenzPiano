@@ -1,4 +1,5 @@
 from django.urls import path
+
 from . import views
 
 urlpatterns = [
@@ -11,8 +12,8 @@ urlpatterns = [
 
     # # content
     # path('archives/', views.archives, name='archives'),
-    path('post/<slug:slug>', views.PostView.as_view(), name='post'),
-    # path('categories/uncategorized', views.uncategorized, name='uncategorized'),
-    # path('tags/', views.tags, name='tags'),
-    # path('tags/<slug:name>', views.tag_name, name='tag_name'),
+    path('post/<slug:slug>/', views.PostView.as_view(), name='post'),
+    # path('categories/uncategorized/', views.uncategorized, name='uncategorized'),
+    path('tags/', views.TagsView.as_view(), name='tags'),
+    path('tags/<slug:slug>/', views.TagNameView.as_view(), name='tag_name'),
 ]

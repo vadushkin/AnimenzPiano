@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="φj">
+        <div class="φi">
+            <div class="φn">
+                <main class="φm">
+                    <div class="φgm">
+                        <h1 class="φgn">目前共计 {{ tags.count }} 个标签</h1>
+                        {% for tag in tags %}
+                            <div class="φdo"
+                                 style="font-size: 1rem;">
+                                <a class="φdp"
+                                   href="{%  url 'tag_name' tag.slug %}">{{ tag.name }}</a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
