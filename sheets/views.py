@@ -15,25 +15,7 @@ class SheetsHome(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Animenz 曲谱'
         context['name_page'] = 'home'
-        context['archives'] = Sheet.objects.count()
-        context['tags_count'] = Tag.objects.count()
         return context
-
-
-def about(request):
-    context = {
-        'title': 'About',
-        'name_page': 'about',
-    }
-    return render(request, 'sheets/about.html', context=context)
-
-
-def donate(request):
-    context = {
-        'title': 'Donate',
-        'name_page': 'donate',
-    }
-    return render(request, 'sheets/donate.html', context=context)
 
 
 class PostView(DetailView):
@@ -59,8 +41,6 @@ class TagsView(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = '标签 - Animenz 曲谱'
         context['name_page'] = 'tags'
-        context['archives'] = Sheet.objects.count()
-        context['tags_count'] = Tag.objects.count()
         return context
 
 
@@ -74,10 +54,24 @@ class TagNameView(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = '标签 - Animenz 曲谱'
         context['name_page'] = 'tags'
-        context['archives'] = Sheet.objects.count()
-        context['tags_count'] = Tag.objects.count()
         context['tags_name'] = self.kwargs.get('slug').title()
         return context
 
     def get_queryset(self):
         return Sheet.objects.filter(tags__slug=self.kwargs['slug'])
+
+
+def about(request):
+    context = {
+        'title': 'About',
+        'name_page': 'about',
+    }
+    return render(request, 'sheets/about.html', context=context)
+
+
+def donate(request):
+    context = {
+        'title': 'Donate',
+        'name_page': 'donate',
+    }
+    return render(request, 'sheets/donate.html', context=context)

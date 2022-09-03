@@ -17,4 +17,4 @@ def get_count_archives():
 
 @register.simple_tag(name='get_count_uncategorized')
 def get_count_uncategorized():
-    return Sheet.objects.filter(category='uncategorized').count()
+    return Sheet.objects.filter(category__name='uncategorized').count()

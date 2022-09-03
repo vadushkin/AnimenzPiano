@@ -5,7 +5,8 @@ from . import models
 
 
 class SheetAdminModel(admin.ModelAdmin):
-    list_display = ('id', 'name', 'slug', 'url', 'description', 'file', 'get_photo', 'created_at', 'updated_at')
+    list_display = (
+        'id', 'name', 'slug', 'url', 'category', 'description', 'file', 'get_photo', 'created_at', 'updated_at')
     list_display_links = ('id', 'name')
     list_filter = ('name',)
     search_fields = ('name', 'description')
@@ -16,6 +17,7 @@ class SheetAdminModel(admin.ModelAdmin):
               'file',
               'get_photo',
               'url',
+              'category',
               'tags',
               'created_at',
               'updated_at',

@@ -1,3 +1,5 @@
+{% load sidebar_tags %}
+
 <div class="φcu">
     <div class="φdg">
         <section class="φdh">
@@ -17,24 +19,43 @@
 
             <div class="φdl">
                 {% if name_page == 'archives' %}
-                    <a class="φdm φdn" href="/archives"><span>{{ archives }}</span><span>归档</span></a>
+                    <a class="φdm φdn"
+                       href="/archives">
+                        <span>{% get_count_archives %}</span><span>归档</span>
+                    </a>
                 {% else %}
-                    <a class="φdm" href="/archives"><span>{{ archives }}</span><span>归档</span></a>
+                    <a class="φdm"
+                       href="/archives">
+                        <span>{% get_count_archives %}</span><span>归档</span>
+                    </a>
                 {% endif %}
+
                 {% if name_page == 'uncategorized' %}
-                    <a class="φdm φdn" href="/categories/uncategorized"><span>1</span><span>分类</span></a>
+                    <a class="φdm φdn"
+                       href="/categories/uncategorized">
+                        <span>{% get_count_uncategorized %}</span><span>分类</span>
+                    </a>
                 {% else %}
-                    <a class="φdm" href="/categories/uncategorized"><span>1</span><span>分类</span></a>
+                    <a class="φdm"
+                       href="/categories/uncategorized">
+                        <span>{% get_count_uncategorized %}</span><span>分类</span>
+                    </a>
                 {% endif %}
+
                 {% if name_page == 'tags' %}
-                    <a class="φdm φdn" href="/tags"><span>{{ tags_count }}</span><span>标签</span></a>
+                    <a class="φdm φdn"
+                       href="/tags">
+                        <span>{% get_count_tags %}</span><span>标签</span>
+                    </a>
                 {% else %}
-                    <a class="φdm" href="/tags"><span>{{ tags_count }}</span><span>标签</span></a>
+                    <a class="φdm"
+                       href="/tags">
+                        <span>{% get_count_tags %}</span><span>标签</span>
+                    </a>
                 {% endif %}
             </div>
 
             <nav class="φdi">
-
                 {% if name_page == 'home' %}
                     <a class="φdj φdk"
                        href="/">🏠　主页</a>
@@ -69,28 +90,25 @@
         </section>
 
         <footer class="φdb φdc">
-
             <div class="φde">
                 <a target="_blank"
                    rel="external nofollow noopener"
                    class="φdf"
                    title="Email"
                    href="mailto:mailto:mail@to.anotia.top">
-                    <div class="iκ-email"></div></a>
+                    <div class="iκ-email"></div>
+                </a>
                 <a target="_blank"
                    rel="external nofollow noopener"
                    class="φdf"
                    title="RSS"
                    href="https://animenz.anotia.top/atom.xml">
-                    <div class="iκ-feed"></div></a>
+                    <div class="iκ-feed"></div>
+                </a>
             </div>
 
-            <p class="φe">© 2020-2022 ❤️
-                <a href="/">Animenz 曲谱网</a>
-            </p>
-
-            <p class="φe">
-            </p>
+            <p class="φe">© 2020-2022 ❤️<a href="/">Animenz 曲谱网</a></p>
+            <p class="φe"></p>
 
             <div>
                 <span title="总访客量"> UV :<span id="busuanzi_value_site_uv"></span></span> |
