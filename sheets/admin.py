@@ -33,5 +33,10 @@ class TagAdminModel(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('name',), }
 
 
+class CategoryAdminModel(admin.ModelAdmin):
+    prepopulated_fields = {'slug': ('name',), }
+
+
 admin.site.register(models.Sheet, SheetAdminModel)
 admin.site.register(models.Tag, TagAdminModel)
+admin.site.register(models.Category, CategoryAdminModel)

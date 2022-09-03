@@ -10,21 +10,21 @@
             <div class="φn">
                 <div class="φm">
                     <div class="φeu">
-
-                        {% for sheet in sheets %}
-                            <div class="φce">
-                                <div class="φch">
-                                    <h3 class="φcl">
-                                        <a href="{% url 'post' sheet.slug %}">{{ sheet.name }}</a>
-                                    </h3>
-                                    <footer class="φcg">
-                                        <span class="φci"><i
-                                                class="φa iκ-calendar φcj"></i>{{ sheet.created_at|date:"Y" }}年
-                                            {{ sheet.created_at|date:"m" }}月{{ sheet.created_at|date:"d" }}日</span>
-                                    </footer>
+                        <div class="φgl">
+                            <article class="φgp">
+                                <h1 class="φgo"># {{ tags_name }}</h1>
+                                <div>
+                                    {% for sheet in sheets %}
+                                        <a class="φo"
+                                           href="{% url 'post' sheet.slug %}">
+                                            <span class="φq">{{ sheet.created_at|date:"Y" }}/{{ sheet.created_at|date:"m" }}/{{ sheet.created_at|date:"d" }}</span>
+                                            <span class="φp">{{ sheet.name }}</span>
+                                        </a>
+                                    {% endfor %}
                                 </div>
-                            </div>
-                        {% endfor %}
+                            </article>
+                        </div>
+
 
                         {% if page_obj.has_other_pages %}
                             <div class="φby">
@@ -54,37 +54,6 @@
                             </div>
                         {% endif %}
                     </div>
-                </div>
-            </div>
-            <div class="φz">
-
-                <div class="φbi">
-                    <span class="φa iκ-up"></span>
-                    <span class="φa iκ-down"></span>
-                    <span class="φa iκ-search"></span>
-                </div>
-
-                <div class="φbb φbc">
-
-                    <svg class="φbh">
-
-                        <defs>
-                            <filter id="dp">
-                                <feGaussianBlur in="SourceGraphic" stdDeviation="2"></feGaussianBlur>
-                            </filter>
-                        </defs>
-
-                        <circle filter="url(#dp)" fill="rgba(0,0,0,.3)" cx="50%" cy="52%" r="44%"></circle>
-                        <circle cx="50%" cy="50%" r="44%" class="φbd"></circle>
-                        <circle cx="50%" cy="50%" r="48%" class="φbg" stroke-dasharray="0% 314.15926%"></circle>
-
-                        <g class="φbe">
-                            <circle r=".2rem" cx="0" cy="-.8rem"></circle>
-                            <circle r=".2rem"></circle>
-                            <circle r=".2rem" cx="0" cy=".8rem"></circle>
-                        </g>
-
-                    </svg>
                 </div>
             </div>
         </div>

@@ -10,24 +10,27 @@
                      class="φcx φcw"
                      alt="Animenz 曲谱"
                      title="Animenz 曲谱">
-                <a href=""
+                <a href="/"
                    class="φcz">Animenz 曲谱</a>
                 <p class="φcy">Specially for Animenz fans</p>
             </header>
 
             <div class="φdl">
-                <a class="φdm"
-                   href="/archives">
-                    <span>{{ archives }}</span>
-                    <span>归档</span></a>
-                <a class="φdm"
-                   href="/categories/uncategorized">
-                    <span>1</span>
-                    <span>分类</span></a>
-                <a class="φdm"
-                   href="/tags">
-                    <span>{{ tags_count }}</span>
-                    <span>标签</span></a>
+                {% if name_page == 'archives' %}
+                    <a class="φdm φdn" href="/archives"><span>{{ archives }}</span><span>归档</span></a>
+                {% else %}
+                    <a class="φdm" href="/archives"><span>{{ archives }}</span><span>归档</span></a>
+                {% endif %}
+                {% if name_page == 'uncategorized' %}
+                    <a class="φdm φdn" href="/categories/uncategorized"><span>1</span><span>分类</span></a>
+                {% else %}
+                    <a class="φdm" href="/categories/uncategorized"><span>1</span><span>分类</span></a>
+                {% endif %}
+                {% if name_page == 'tags' %}
+                    <a class="φdm φdn" href="/tags"><span>{{ tags_count }}</span><span>标签</span></a>
+                {% else %}
+                    <a class="φdm" href="/tags"><span>{{ tags_count }}</span><span>标签</span></a>
+                {% endif %}
             </div>
 
             <nav class="φdi">

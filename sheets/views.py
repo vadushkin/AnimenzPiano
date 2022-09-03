@@ -58,6 +58,7 @@ class TagsView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = '标签 - Animenz 曲谱'
+        context['name_page'] = 'tags'
         context['archives'] = Sheet.objects.count()
         context['tags_count'] = Tag.objects.count()
         return context
@@ -72,9 +73,10 @@ class TagNameView(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = '标签 - Animenz 曲谱'
+        context['name_page'] = 'tags'
         context['archives'] = Sheet.objects.count()
         context['tags_count'] = Tag.objects.count()
-        context['tags_name'] = self.kwargs.get('slug')
+        context['tags_name'] = self.kwargs.get('slug').title()
         return context
 
     def get_queryset(self):
