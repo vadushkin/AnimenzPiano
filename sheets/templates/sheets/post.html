@@ -46,7 +46,7 @@
                                 {% for tag in sheet.tags.all %}
                                     <div class="φdo">
                                         <a class="φdp"
-                                           href="/tags/%E7%A9%BA%E4%B9%8B%E9%9F%B3">{{ tag.name }}</a>
+                                           href="{% url 'tag_name' tag.slug %}">{{ tag.name }}</a>
                                     </div>
                                 {% endfor %}
                             </div>

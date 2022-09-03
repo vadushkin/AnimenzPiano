@@ -12,7 +12,7 @@
                     <div class="φeu">
                         <div class="φgl">
                             <article class="φgp">
-                                <h1 class="φgo"># {{ tags_name }}</h1>
+                                <h1 class="φgo"># {{ tags_name.get }}</h1>
                                 <div>
                                     {% for sheet in sheets %}
                                         <a class="φo"
@@ -31,24 +31,24 @@
 
                                 {% if page_obj.has_previous %}
                                     <a class="φbz φcd"
-                                       href="tags/{{ tags_name }}/?page={{ page_obj.previous_page_number }}"></a>
+                                       href="tags/{{ tags_slug }}/?page={{ page_obj.previous_page_number }}"></a>
                                 {% endif %}
 
                                 {% for p in page_obj.paginator.page_range %}
 
                                     {% if page_obj.number == p %}
                                         <a class="φbz φca"
-                                           href="tags/{{ tags_name }}/?page={{ p }}">{{ p }}</a>
+                                           href="tags/{{ tags_slug }}/?page={{ p }}">{{ p }}</a>
                                     {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
                                         <a class="φbz"
-                                           href="tags/{{ tags_name }}/?page={{ p }}">{{ p }}</a>
+                                           href="tags/{{ tags_slug }}/?page={{ p }}">{{ p }}</a>
                                     {% endif %}
 
                                 {% endfor %}
 
                                 {% if page_obj.has_next %}
                                     <a class="φbz φcc"
-                                       href="tags/{{ tags_name }}/?page={{ page_obj.next_page_number }}"></a>
+                                       href="tags/{{ tags_slug }}/?page={{ page_obj.next_page_number }}"></a>
                                 {% endif %}
 
                             </div>

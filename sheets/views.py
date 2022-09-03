@@ -48,17 +48,46 @@ class TagNameView(ListView):
     model = Sheet
     template_name = 'sheets/posts_by_tag.html'
     context_object_name = 'sheets'
-    paginate_by = 10
+    paginate_by = 3
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = '标签 - Animenz 曲谱'
         context['name_page'] = 'tags'
-        context['tags_name'] = self.kwargs.get('slug').title()
+        context['tags_slug'] = self.kwargs.get('slug')
+        context['tags_name'] = Tag.objects.filter(slug=self.kwargs.get('slug')).only('name')
         return context
 
     def get_queryset(self):
         return Sheet.objects.filter(tags__slug=self.kwargs['slug'])
+
+
+class ArchivesView(ListView):
+    model = Sheet
+    template_name = 'sheets/index.html'
+    context_object_name = 'sheets'
+    allow_empty = False
+    paginate_by = 10
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Animenz 曲谱'
+        context['name_page'] = 'home'
+        return context
+
+
+class CategoriesView(ListView):
+    model = Sheet
+    template_name = 'sheets/index.html'
+    context_object_name = 'sheets'
+    allow_empty = False
+    paginate_by = 10
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Animenz 曲谱'
+        context['name_page'] = 'home'
+        return context
 
 
 def about(request):
