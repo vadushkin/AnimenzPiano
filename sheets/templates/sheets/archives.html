@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="φj">
+        <div class="φi">
+            <div class="φn">
+                <div class="φm">
+                    <div class="φec">
+                        <article class="φef">
+                            <section class="φeg">
+                                {% for sheet in sheets %}
+                                    <div class="φed">
+                                        <header class="φee">
+                                            {{ sheet.created_at|date:"Y" }}
+                                            {{ sheet.created_at|date:"m" }}
+                                            {{ sheet.created_at|date:"d" }}
+                                        </header>
+                                        <div>
+                                            <a class="φo" href="{% url 'post' sheet.slug %}">
+                                                <span class="φp">{{ sheet.name }}</span>
+                                            </a>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </section>
+                        </article>
+
+                        {% if page_obj.has_other_pages %}
+                            <div class="φby">
+
+                                {% if page_obj.has_previous %}
+                                    <a class="φbz φcd"
+                                       href="archives/?page={{ page_obj.previous_page_number }}"></a>
+                                {% endif %}
+
+                                {% for p in page_obj.paginator.page_range %}
+
+                                    {% if page_obj.number == p %}
+                                        <a class="φbz φca"
+                                           href="archives/?page={{ p }}">{{ p }}</a>
+                                    {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
+                                        <a class="φbz"
+                                           href="archives/?page={{ p }}">{{ p }}</a>
+                                    {% endif %}
+
+                                {% endfor %}
+
+                                {% if page_obj.has_next %}
+                                    <a class="φbz φcc"
+                                       href="archives/?page={{ page_obj.next_page_number }}"></a>
+                                {% endif %}
+
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}

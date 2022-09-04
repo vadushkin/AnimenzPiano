@@ -67,16 +67,20 @@ class TagNameView(ListView):
 
 class ArchivesView(ListView):
     model = Sheet
-    template_name = 'sheets/index.html'
+    template_name = 'sheets/archives.html'
     context_object_name = 'sheets'
     allow_empty = False
-    paginate_by = 15
+    paginate_by = 17
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Animenz 曲谱'
-        context['name_page'] = 'home'
+        context['title'] = '归档 - Animenz 曲谱'
+        context['name_page'] = 'archives'
+        context['first_post_year'] = Sheet.objects.order_by('created_at')[0].created_at.year
         return context
+
+    def get_queryset(self):
+        return Sheet.objects.order_by('-created_at')
 
 
 class CategoriesView(ListView):
