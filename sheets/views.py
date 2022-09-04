@@ -10,13 +10,16 @@ class SheetsHome(ListView):
     template_name = 'sheets/index.html'
     context_object_name = 'sheets'
     allow_empty = False
-    paginate_by = 10
+    paginate_by = 15
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Animenz 曲谱'
         context['name_page'] = 'home'
         return context
+
+    def get_queryset(self):
+        return Sheet.objects.order_by('-created_at')
 
 
 class PostView(DetailView):
@@ -49,7 +52,7 @@ class TagNameView(ListView):
     model = Sheet
     template_name = 'sheets/posts_by_tag.html'
     context_object_name = 'sheets'
-    paginate_by = 3
+    paginate_by = 15
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -60,7 +63,7 @@ class TagNameView(ListView):
         return context
 
     def get_queryset(self):
-        return Sheet.objects.filter(tags__slug=self.kwargs['slug'])
+        return Sheet.objects.filter(tags__slug=self.kwargs['slug']).order_by('-created_at')
 
 
 class ArchivesView(ListView):
@@ -68,7 +71,7 @@ class ArchivesView(ListView):
     template_name = 'sheets/index.html'
     context_object_name = 'sheets'
     allow_empty = False
-    paginate_by = 10
+    paginate_by = 15
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -82,28 +85,32 @@ class CategoriesView(ListView):
     template_name = 'sheets/categories.html'
     context_object_name = 'categories'
     allow_empty = False
-    paginate_by = 10
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = '分类 - Animenz 曲谱'
         context['name_page'] = 'categories'
-        context['list_count'] = Category.objects.annotate(cnt=Count('category'))
+        context['list_count'] = Category.objects.annotate(cnt=Count('category')).filter(cnt__gt=0)
         return context
 
 
 class CategoryNameView(ListView):
     model = Sheet
-    template_name = 'sheets/index.html'
+    template_name = 'sheets/category.html'
     context_object_name = 'sheets'
     allow_empty = False
-    paginate_by = 10
+    paginate_by = 15
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
         context['title'] = 'Animenz 曲谱'
         context['name_page'] = 'categories'
+        context['category_slug'] = self.kwargs.get('slug')
+        context['list_count'] = Category.objects.annotate(cnt=Count('category')).filter(slug=self.kwargs.get('slug'))
         return context
+
+    def get_queryset(self):
+        return Sheet.objects.filter(category__slug=self.kwargs.get('slug')).order_by('-created_at')
 
 
 def about(request):

@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% load sidebar_tags %}
+
+{% block title %}
+    {{ title }}
+{% endblock title %}
+
+{% block content %}
+    <div class="φj">
+        <div class="φi">
+            <div class="φn">
+                <div class="φm">
+                    <div class="v-category">
+
+                        <div class="φen">
+                            {% for category in list_count %}
+                                <nav class="φei">
+                                    <a class="φej"
+                                       count="{{ category.cnt }}"
+                                       href="{% url 'category' category.slug %}">{{ category.name }}</a>
+                                </nav>
+                            {% endfor %}
+                        </div>
+
+                        <div class="φr">
+
+                            <article class="φs">
+                                {% for sheet in sheets %}
+                                    <a class="φo" href="{% url 'post' sheet.slug %}">
+                                        <span class="φq">{{ sheet.created_at|date:"Y" }}/{{ sheet.created_at|date:"m" }}/{{ sheet.created_at|date:"d" }}</span>
+                                        <span class="φp">{{ sheet.name }}</span>
+                                    </a>
+                                {% endfor %}
+                            </article>
+
+                            {% if page_obj.has_other_pages %}
+                                <div class="φby">
+
+                                    {% if page_obj.has_previous %}
+                                        <a class="φbz φcd"
+                                           href="categories/{{ category_slug }}/?page={{ page_obj.previous_page_number }}"></a>
+                                    {% endif %}
+
+                                    {% for p in page_obj.paginator.page_range %}
+
+                                        {% if page_obj.number == p %}
+                                            <a class="φbz φca"
+                                               href="categories/{{ category_slug }}/?page={{ p }}">{{ p }}</a>
+                                        {% elif p > page_obj.number|add:-3 and p < page_obj.number|add:3 %}
+                                            <a class="φbz"
+                                               href="categories/{{ category_slug }}/?page={{ p }}">{{ p }}</a>
+                                        {% endif %}
+
+                                    {% endfor %}
+
+                                    {% if page_obj.has_next %}
+                                        <a class="φbz φcc"
+                                           href="categories/{{ category_slug }}/?page={{ page_obj.next_page_number }}"></a>
+                                    {% endif %}
+
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock content %}
