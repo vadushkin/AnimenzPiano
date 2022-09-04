@@ -56,7 +56,6 @@ class TagNameView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = '标签 - Animenz 曲谱'
         context['name_page'] = 'tags'
         context['tags_slug'] = self.kwargs.get('slug')
         context['tags_name'] = Tag.objects.filter(slug=self.kwargs.get('slug')).only('name')
@@ -103,7 +102,6 @@ class CategoryNameView(ListView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Animenz 曲谱'
         context['name_page'] = 'categories'
         context['category_slug'] = self.kwargs.get('slug')
         context['list_count'] = Category.objects.annotate(cnt=Count('category')).filter(slug=self.kwargs.get('slug'))
@@ -115,7 +113,7 @@ class CategoryNameView(ListView):
 
 def about(request):
     context = {
-        'title': 'About',
+        'title': '欢迎来到 Animenz 曲谱网！ - Animenz 曲谱',
         'name_page': 'about',
     }
     return render(request, 'sheets/about.html', context=context)
@@ -123,7 +121,7 @@ def about(request):
 
 def donate(request):
     context = {
-        'title': 'Donate',
+        'title': '打赏 - Animenz 曲谱',
         'name_page': 'donate',
     }
     return render(request, 'sheets/donate.html', context=context)
