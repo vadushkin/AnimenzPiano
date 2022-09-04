@@ -1,4 +1,5 @@
 from django.urls import path
+from django.views.decorators.cache import cache_page
 
 from . import views
 
@@ -7,8 +8,8 @@ urlpatterns = [
     path('', views.SheetsHome.as_view(), name='home'),
 
     # contact
-    path('about/', views.about, name='about'),
-    path('donate/', views.donate, name='donate'),
+    path('about/', cache_page(600)(views.about), name='about'),
+    path('donate/', cache_page(600)(views.donate), name='donate'),
 
     # content
     path('archives/', views.ArchivesView.as_view(), name='archives'),

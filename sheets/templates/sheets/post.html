@@ -34,9 +34,11 @@
                                 <p><img src="{{ sheet.photo.url }}"
                                         alt="{{ sheet.photo.name }}" loading="lazy" class="φbp"></p>
 
-                                <p><a href="{{ sheet.url }}"
-                                      target="_blank">下载PDF</a></p>
-
+                                {% if sheet.url %}
+                                    <p><a href="{{ sheet.url }}" target="_blank">下载PDF</a></p>
+                                {% else %}
+                                    <p>没有链接PDF</p>
+                                {% endif %}
                             </div>
                         </article>
 
@@ -52,16 +54,15 @@
                             </div>
 
                             <div class="φey">
-                                {% if previous_page %}
+                                {% for i in previous_page %}
                                     <a class="φez φfb"
-                                       href="{% url 'post' previous_page.get.slug %}">{{ previous_page.get.name }}</a>
-                                {% endif %}
-                                {% if next_page %}
+                                       href="{% url 'post' i.slug %}">{{ i.name }}</a>
+                                {% endfor %}
+                                {% for i in next_page %}
                                     <a class="φez φfa"
-                                       href="{% url 'post' next_page.get.slug %}">{{ next_page.get.name }}</a>
-                                {% endif %}
+                                       href="{% url 'post' i.slug %}">{{ i.name }}</a>
+                                {% endfor %}
                             </div>
-
                         </footer>
                     </div>
                 </div>

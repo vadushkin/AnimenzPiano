@@ -1,4 +1,5 @@
 {% load sidebar_tags %}
+{% load cache %}
 
 <div class="φcu">
     <div class="φdg">
@@ -17,6 +18,7 @@
                 <p class="φcy">Specially for Animenz fans</p>
             </header>
 
+            {% cache 600 sidebar %}
             <div class="φdl">
                 {% if name_page == 'archives' %}
                     <a class="φdm φdn"
@@ -54,6 +56,7 @@
                     </a>
                 {% endif %}
             </div>
+            {% endcache %}
 
             <nav class="φdi">
                 {% if name_page == 'home' %}
@@ -95,7 +98,7 @@
                    rel="external nofollow noopener"
                    class="φdf"
                    title="Email"
-                   href="mailto:mailto:mail@to.anotia.top">
+                   href="mailto:mail@to.anotia.top">
                     <div class="iκ-email"></div>
                 </a>
                 <a target="_blank"
@@ -114,7 +117,6 @@
                 <span title="总访客量"> UV :<span id="busuanzi_value_site_uv"></span></span> |
                 <span title="总访问量"> PV :<span id="busuanzi_value_site_pv"></span></span>
             </div>
-
         </footer>
     </div>
 </div>
