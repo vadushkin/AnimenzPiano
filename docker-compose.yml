@@ -2,11 +2,9 @@ version: '3.9'
 
 services:
   web:
-    build: ./animenz
-    command: python manage.py runserver 0.0.0.0:8000
+    build: .
+    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
     volumes:
       - .:/animenz
     ports:
       - 8000:8000
-    environment:
-      - SECRET_KEY='django-insecure-p4hldk)!^n4(rrrzlz_^-c%!g$v9$a8e)7kobrlz6!qvtk#7gb'
