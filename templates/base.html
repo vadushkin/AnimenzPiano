@@ -67,12 +67,6 @@
         --inside-accent-color-08: rgba(42, 43, 51, .8)
     }</style>
 
-    <script src="{% static 'js/polyfills.js' %}"></script>
-    <script src="{% static 'js/runtime.js' %}"></script>
-    <script src="{% static 'js/config.js' %}"></script>
-    <script src="{% static 'js/theme.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
-
 </head>
 <body>
 
@@ -86,8 +80,4 @@
 
     {% block content %}
     {% endblock content %}
-
-    {% block footer %}
-        {% include 'include/footer.html' %}
-    {% endblock footer %}
 </div>
