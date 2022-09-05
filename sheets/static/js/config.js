@@ -7,9 +7,9 @@ window.__inside__ = {
         "bio": "Specially for Animenz fans"
     },
     "menu": [["🏠　主页", "/"], ["📝　关于", "/about"], ["📺　Bilibili", "https://space.bilibili.com/6075139", 1], ["💲　打赏支持", "/donate"]],
-    "sns": [["Email", "mailto:mailto:mail@to.anotia.top", "<i class=\"iκ-email\"></i>"], ["RSS", "https://animenz.anotia.top/atom.xml", "<i class=\"iκ-feed\"></i>"]],
+    "sns": [["Email", "mailto:mail@to.anotia.top", "<i class=\"iκ-email\"></i>"], ["RSS", "https://animenz.anotia.top/atom.xml", "<i class=\"iκ-feed\"></i>"]],
     "footer": {
-        "copyright": "&copy; 2020-2021 ❤️ <a href=\"/\">Animenz 曲谱网</a>",
+        "copyright": "&copy; 2020-2022 ❤️ <a href=\"/\">Animenz 曲谱网</a>",
         "powered": false,
         "theme": false,
         "custom": "<div><span title=\"总访客量\"> UV : <span id=\"busuanzi_value_site_uv\"></span></span> | <span title=\"总访问量\"> PV : <span id=\"busuanzi_value_site_pv\"></span></span></div>"

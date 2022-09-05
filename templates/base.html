@@ -24,7 +24,6 @@
     <link rel="icon" type="image/x-icon" href="{% static 'img/avatar.jpg' %}">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
     <link rel="stylesheet" href="{% static 'css/font.css' %}">
-    <link rel="stylesheet" href="{% static 'js/style.js' %}">
     <link rel="canonical" href="https://animenz.anotia.top/">
 
     <base href="/">
@@ -73,6 +72,7 @@
     <script src="{% static 'js/config.js' %}"></script>
     <script src="{% static 'js/theme.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+
 </head>
 <body>
 
@@ -86,11 +86,8 @@
 
     {% block content %}
     {% endblock content %}
+
+    {% block footer %}
+        {% include 'include/footer.html' %}
+    {% endblock footer %}
 </div>
-
-{% block footer %}
-    {% include 'include/footer.html' %}
-{% endblock footer %}
-
-</body>
-</html>
