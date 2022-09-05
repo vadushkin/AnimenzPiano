@@ -141,3 +141,6 @@ cython_debug/
 .idea/
 .idea
 media/
+
+animenz_cache/
+animenz_cache
