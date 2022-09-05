@@ -9,7 +9,6 @@ class SheetsHome(ListView):
     model = Sheet
     template_name = 'sheets/index.html'
     context_object_name = 'sheets'
-    allow_empty = False
     paginate_by = 15
 
     def get_context_data(self, *, object_list=None, **kwargs):
@@ -39,7 +38,6 @@ class TagsView(ListView):
     model = Tag
     template_name = 'sheets/tags.html'
     context_object_name = 'tags'
-    allow_empty = False
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -87,7 +85,6 @@ class CategoriesView(ListView):
     model = Category
     template_name = 'sheets/categories.html'
     context_object_name = 'categories'
-    allow_empty = False
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -101,7 +98,6 @@ class CategoryNameView(ListView):
     model = Sheet
     template_name = 'sheets/category.html'
     context_object_name = 'sheets'
-    allow_empty = False
     paginate_by = 15
 
     def get_context_data(self, *, object_list=None, **kwargs):
