@@ -2,6 +2,7 @@ from django.urls import path
 from django.views.decorators.cache import cache_page
 
 from . import views
+from .api import SheetAPIView
 
 urlpatterns = [
     # main page
@@ -18,4 +19,7 @@ urlpatterns = [
     path('categories/<slug:slug>/', views.CategoryNameView.as_view(), name='category'),
     path('tags/', views.TagsView.as_view(), name='tags'),
     path('tags/<slug:slug>/', views.TagNameView.as_view(), name='tag_name'),
+
+    # api
+    path('api/v1/sheetlist/', SheetAPIView.as_view()),
 ]
