@@ -37,7 +37,7 @@
                                 {% if sheet.url %}
                                     <p><a href="{{ sheet.url }}" target="_blank">下载PDF</a></p>
                                 {% else %}
-                                    <p>没有链接PDF</p>
+                                    <p><a href="{{ sheet.file.url }}" target="_blank">下载PDF</a></p>
                                 {% endif %}
                             </div>
                         </article>
