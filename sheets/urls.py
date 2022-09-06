@@ -1,8 +1,13 @@
-from django.urls import path
+from django.urls import path, include
 from django.views.decorators.cache import cache_page
+from rest_framework import routers
 
 from . import views
-from .api import SheetAPIView
+from .api import SheetViewSet
+
+router = routers.SimpleRouter()
+
+router.register(r'sheets', SheetViewSet)
 
 urlpatterns = [
     # main page
@@ -21,5 +26,5 @@ urlpatterns = [
     path('tags/<slug:slug>/', views.TagNameView.as_view(), name='tag_name'),
 
     # api
-    path('api/v1/sheetlist/', SheetAPIView.as_view()),
+    path('api/v1/', include(router.urls)),
 ]

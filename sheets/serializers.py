@@ -6,4 +6,4 @@ from .models import Sheet
 class SheetSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sheet
-        fields = "__all__"
+        fields = ('name', 'description', 'url', 'file', 'category', 'tags', 'created_at', 'updated_at')
