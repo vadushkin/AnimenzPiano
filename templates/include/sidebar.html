@@ -1,5 +1,4 @@
 {% load sidebar_tags %}
-{% load cache %}
 
 <div class="φcu">
     <div class="φdg">
@@ -17,7 +16,6 @@
                 <p class="φcy">Specially for Animenz fans</p>
             </header>
 
-            {% cache 30 sidebar %}
             <div class="φdl">
                 {% if name_page == 'archives' %}
                     <a class="φdm φdn"
@@ -55,7 +53,6 @@
                     </a>
                 {% endif %}
             </div>
-            {% endcache %}
 
             <nav class="φdi">
                 {% if name_page == 'home' %}
