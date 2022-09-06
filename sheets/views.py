@@ -1,3 +1,4 @@
+from django.core.cache import cache
 from django.db.models import Count
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
@@ -74,7 +75,6 @@ class ArchivesView(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = '归档 - Animenz 曲谱'
         context['name_page'] = 'archives'
-        context['first_post_year'] = Sheet.objects.order_by('created_at')[0].created_at.year
         return context
 
     def get_queryset(self):
@@ -90,7 +90,12 @@ class CategoriesView(ListView):
         context = super().get_context_data(**kwargs)
         context['title'] = '分类 - Animenz 曲谱'
         context['name_page'] = 'categories'
-        context['list_count'] = Category.objects.annotate(cnt=Count('category')).filter(cnt__gt=0)
+        categories = cache.get('cat')
+        if not categories:
+            categories = Category.objects.annotate(cnt=Count('category')).filter(cnt__gt=0)
+            cache.set('cat', categories, 60)
+            context['list_count'] = categories
+        context['list_count'] = categories
         return context
 
 
@@ -104,7 +109,12 @@ class CategoryNameView(ListView):
         context = super().get_context_data(**kwargs)
         context['name_page'] = 'categories'
         context['category_slug'] = self.kwargs.get('slug')
-        context['list_count'] = Category.objects.annotate(cnt=Count('category')).filter(slug=self.kwargs.get('slug'))
+        categories = cache.get('categories')
+        if not categories:
+            categories = Category.objects.annotate(cnt=Count('category')).filter(slug=self.kwargs.get('slug'))
+            cache.set('categories', categories, 60)
+            context['list_count'] = categories
+        context['list_count'] = categories
         return context
 
     def get_queryset(self):
