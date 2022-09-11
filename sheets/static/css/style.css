@@ -37,6 +37,66 @@ body {
     }
 }
 
+.darkmode {
+    --inside-accent-color: #539bf5;
+    --inside-foreground-color: #adbac7;
+    --inside-border-color: #373e47;
+    --inside-background: #22272e;
+    --inside-sidebar-background: #22272e;
+    --inside-card-background: #2d333b;
+    --inside-font-base: 'Josefin Sans','PingFang SC';
+    --inside-font-logo: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --inside-font-menu: Baloo Bhaijaan,'Josefin Sans','PingFang SC';
+    --inside-font-heading: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --inside-font-label: Montserrat,'Josefin Sans','PingFang SC';
+    --inside-font-code: Inconsolata,monospace;
+    --inside-font-print: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    --inside-content-width: 660px;
+    --inside-highlight-00: #2d333b;
+    --inside-highlight-01: #444c56;
+    --inside-highlight-02: #3e4451;
+    --inside-highlight-03: #545862;
+    --inside-highlight-04: #565c64;
+    --inside-highlight-05: #abb2bf;
+    --inside-highlight-06: #b6bdca;
+    --inside-highlight-07: #c8ccd4;
+    --inside-highlight-08: #e06c75;
+    --inside-highlight-09: #d19a66;
+    --inside-highlight-0a: #e5c07b;
+    --inside-highlight-0b: #98c379;
+    --inside-highlight-0c: #56b6c2;
+    --inside-highlight-0d: #61afef;
+    --inside-highlight-0e: #c678dd;
+    --inside-highlight-0f: #be5046;
+    --inside-card-color: #2d333b;
+    --inside-accent-color-005: rgba(83,155,245,.05);
+    --inside-accent-color-01: rgba(83,155,245,.1);
+    --inside-accent-color-02: rgba(83,155,245,.2);
+    --inside-accent-color-04: rgba(83,155,245,.4);
+    --inside-accent-color-08: rgba(83,155,245,.8);
+}
+
+body {
+    background: var(--inside-background);
+    color: var(--inside-foreground-color);
+}
+
+.φda {
+    position: absolute;
+    z-index: 100;
+    top: 1em;
+    right: 1em;
+    color: var(--inside-foreground-color);
+    background: var(--inside-card-background);
+    border: 2px solid currentColor;
+    padding: 4px;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 30px;
+    height: 30px;
+}
+
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--inside-font-heading);
     font-weight: 400;
