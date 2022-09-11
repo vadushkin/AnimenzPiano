@@ -2,38 +2,63 @@
 
 #### Ссылка на код официального сайта: https://github.com/AnotiaWang/animenz
 
-![img.png](images/img.png)
+Скриншоты
+---------
 
-## Для установки:
+![img.png](images/img2.png)
 
-### Клонировать репозиторий:
+![img.png](images/img3.png)
+
+Установка
+---------
+
 ```
 git clone https://github.com/vadushkin/animenz_piano.git
-```
-
-### Скачать все зависимости:
-```
+cd animenz_piano
+python -m venv venv
 pip install -r requirements.txt
-```
-
-### Выполнить миграции:
-```
 python manage.py migrate
-```
-
-### Запустить сервер:
-```
 python manage.py runserver
 ```
 
-## Для Docker'а:
+### Админка
 
-### После клонирования репозитория нужно запустить команду:
 ```
+python manage.py createsuperuser
+```
+
+Docker
+------
+
+```
+git clone https://github.com/vadushkin/animenz_piano.git
+cd animenz_piano
 docker-compose up -d
 ```
 
-### Остановка Docker:
+### Остановка Docker
 ```
 docker-compose stop
 ```
+
+Сервис
+------
+
+* `/` - Главная страница
+* `admin/` - Админка
+* `about/` - О Animenz
+* `donate/` - Пожертвование
+* `tags/` - Теги
+* `tags/<slug>/` - Тег
+* `post/<slug>/` - Пост
+* `archives/` - Архив всех постов
+* `categories/` - Категории
+* `categories/<slug>/` - Категория
+
+API
+---
+* `api/v1/sheets/` - Все посты
+* `api/v1/sheets/<id>/` - Пост
+* `api/v1/sheets/tags/` - Теги
+* `api/v1/sheets/categories/` - Категории
+* `api/v1/drf-auth/` - Авторизация
