@@ -1,8 +1,11 @@
 import pypdfium2 as pdfium
+
+from django.core.validators import FileExtensionValidator
 from django.db import models
 
 
 class Tag(models.Model):
+    objects = models.Manager()
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
 
@@ -16,6 +19,7 @@ class Tag(models.Model):
 
 
 class Category(models.Model):
+    objects = models.Manager()
     name = models.CharField(max_length=100)
     slug = models.SlugField(max_length=100, unique=True)
 
@@ -29,9 +33,15 @@ class Category(models.Model):
 
 
 class Sheet(models.Model):
+    objects = models.Manager()
     name = models.CharField(max_length=255)
     slug = models.SlugField(max_length=100, unique=True)
-    file = models.FileField()
+    file = models.FileField(validators=[
+        FileExtensionValidator(
+            allowed_extensions=['pdf'],
+            message="It isn't a pdf file"
+        )
+    ])
     photo = models.ImageField()
     description = models.TextField(blank=True)
     url = models.URLField(blank=True)
