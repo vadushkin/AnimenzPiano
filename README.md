@@ -1,15 +1,15 @@
 # Animenz Piano Sheets
 
-#### Ссылка на код официального сайта: https://github.com/AnotiaWang/animenz
+#### Link to the code of the official website: https://github.com/AnotiaWang/animenz
 
-Скриншоты
+Screenshots
 ---------
 
 ![img.png](images/img2.png)
 
 ![img.png](images/img3.png)
 
-Установка
+Installation
 ---------
 
 ```
@@ -22,7 +22,7 @@ python manage.py migrate
 python manage.py runserver
 ```
 
-### Админка
+### Admin Panel
 
 ```
 python manage.py createsuperuser
@@ -37,12 +37,12 @@ cd animenz_piano
 docker-compose up -d
 ```
 
-### Остановка Docker
+### Stop Docker
 ```
 docker-compose stop
 ```
 
-Сервис
+Servic
 ------
 
 * `/` - Главная страница
@@ -56,8 +56,9 @@ docker-compose stop
 * `categories/` - Категории
 * `categories/<slug>/` - Категория
 
-API
+Api
 ---
+
 * `api/v1/sheets/` - Все посты
 * `api/v1/sheets/<id>/` - Пост
 * `api/v1/sheets/tags/` - Теги
