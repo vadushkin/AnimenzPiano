@@ -1,5 +1,5 @@
 FROM python:3.11
-MAINTAINER Vadim <vadimsalapugin@gmail.com>
+MAINTAINER Vadim <vadimshalapugin@gmail.com>
 
 RUN apt-get update && apt-get upgrade -y && apt-get autoremove && apt-get autoclean
 
