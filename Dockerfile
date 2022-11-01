@@ -1,12 +1,14 @@
-FROM python:3.10
+FROM python:3.11
+MAINTAINER Vadim <vadimsalapugin@gmail.com>
 
-WORKDIR /animenz
+RUN apt-get update && apt-get upgrade -y && apt-get autoremove && apt-get autoclean
 
-ENV PYTHONDONTWRITEBYTECODE 1
-ENV PYTHONUNBUFFERED 1
+RUN mkdir /site
+COPY . /site/
+WORKDIR /site
 
 RUN pip install --upgrade pip
-COPY ./requirements.txt .
 RUN pip install -r requirements.txt
 
-COPY . .
+ENTRYPOINT ["python", "manage.py"]
+CMD ["runserver", "0.0.0.0:8000"]

@@ -1,10 +1,15 @@
-version: '3.9'
+version: "3"
 
 services:
   web:
+    container_name: web_app
     build: .
-    command: bash -c "python manage.py migrate && python manage.py runserver 0.0.0.0:8000"
-    volumes:
-      - .:/animenz
+    restart: on-failure
     ports:
-      - 8000:8000
+      - "8000:8000"
+    volumes:
+      - ./animenz:/site/animenz
+
+  ubuntu:
+    container_name: ubuntu_container
+    image: ubuntu
