@@ -45,22 +45,22 @@ docker-compose stop
 Servic
 ------
 
-* `/` - Главная страница
-* `admin/` - Админка
-* `about/` - О Animenz
-* `donate/` - Пожертвование
-* `tags/` - Теги
-* `tags/<slug>/` - Тег
-* `post/<slug>/` - Пост
-* `archives/` - Архив всех постов
-* `categories/` - Категории
-* `categories/<slug>/` - Категория
+* `/` - Main Page
+* `admin/` - Admin Panel
+* `about/` - About Animenz
+* `donate/` - Donation
+* `tags/` - Tags
+* `tags/<slug>/` - Tag
+* `post/<slug>/` - Post
+* `archives/` - Archive of all posts
+* `categories/` - Categories
+* `categories/<slug>/` - Category
 
 Api
 ---
 
-* `api/v1/sheets/` - Все посты
-* `api/v1/sheets/<id>/` - Пост
-* `api/v1/sheets/tags/` - Теги
-* `api/v1/sheets/categories/` - Категории
-* `api/v1/drf-auth/` - Авторизация
+* `api/v1/sheets/` - All posts
+* `api/v1/sheets/<id>/` - Post
+* `api/v1/sheets/tags/` - Tags
+* `api/v1/sheets/categories/` - Categories
+* `api/v1/drf-auth/` - Authentication
