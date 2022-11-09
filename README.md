@@ -42,7 +42,7 @@ docker-compose up -d
 docker-compose stop
 ```
 
-Servic
+Service
 ------
 
 * `/` - Main Page
